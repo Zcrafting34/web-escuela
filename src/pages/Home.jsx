@@ -32,7 +32,7 @@ function Home() {
       <main>
         <section className="grid grid-cols-2 ">
           <div className="flex flex-col justify-center">
-            <h3 class="mb-6 mx-20 text-4md font-bold font-extrabold text-gray-900 dark:text-dark md:text-4xl lg:text-6xl">
+            <h3 class="mb-6 mx-20 text-4md font-extrabold text-gray-900 dark:text-dark md:text-4xl lg:text-6xl">
               {" "}
               Eventos recientes <hr />
         
