@@ -53,7 +53,7 @@ function Home() {
         <section className="dark:bg-white">
           <div className="grid grid-cols-2 place-items-center">
             <div className="w-96 h-96 flex justify-center items-center">
-              <div className="w-full h-full bg-[url('src/assets/img/36años.png')] dark:bg-[url('src/assets/img/36años.png')] bg-no-repeat bg-center bg-cover"></div>
+              <div className="w-full h-full bg-[url('../../assets/img/36años.png')] dark:bg-[url('src/assets/img/36años.png')] bg-no-repeat bg-center bg-cover"></div>
             </div>
 
             <div className="justify-items-center items-center mt-24 py-16">
