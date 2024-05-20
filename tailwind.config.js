@@ -7,9 +7,7 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "hero-pattern": "url('/src/assets/img/backgroundHome.png')",
-      },
+
     },
   },
   plugins: ["flowbite.plugin(),"],

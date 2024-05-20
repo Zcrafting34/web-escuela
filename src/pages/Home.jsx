@@ -8,59 +8,79 @@ import SliderImg from "../styled-components/containers/SliderImg";
 function Home() {
   return (
     <Layout>
-      <header className="pt-9">
-        <div className="w-full h-full bg-cover bg-center mt-16 bg-hero-pattern ">
-          <div className="div1 mx-auto max-w-full max-h-full ml-14 py-18 px-4 sm:px-6 lg:py-16 lg:px-8">
-            <h1 className='class="mt-0 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl md:mt-0 lg:text-6xl dark:text-dark'>
-              CBT2 Juan Celada
+      <header className="pt-0">
+        <div className="w-full bg-cover bg-center mt-16 grid grid-cols-1 sm:grid-cols-2">
+          <div className="mx-6 sm:mx-24 max-w-full h-auto sm:px-6 lg:py-16 lg:px-8">
+            <h1 className="mt-10 text-4xl md:text-6xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-dark">
+              CBT2 Ing Juan Celada
             </h1>
-            <div className="separador"></div>
-            <h2 class="mb-6 text-2md font-bold text-gray-900 dark:text-dark md:text-2xl lg:text-4xl">
-              <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
+            <h2 className="mt-4 md:mt-10 mx-0 text-xl md:text-2xl lg:text-4xl font-bold text-gray-900 dark:text-dark">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
                 Formando
-              </span>{" "}
+              </span>
               Profesionales.
             </h2>
-            <div className="mt-30 mb-20"></div>
-            <div>
+            <div className="mt-4 md:mt-10">
               <ButtonBlue name={"Carreras"} link={"/carreras"} />
+              <span className="mx-2 md:mx-4"></span>
               <ButtonsPurple name={"Quienes somos?"} />
             </div>
           </div>
-        </div>
-      </header>
-      <main>
-        <section className="grid grid-cols-2 ">
-          <div className="flex flex-col justify-center">
-            <h3 class="mb-6 mx-20 text-4md font-extrabold text-gray-900 dark:text-dark md:text-4xl lg:text-6xl">
-              {" "}
-              Eventos recientes <hr />
-        
-            </h3>
-          </div>
-          <div className="flex flex-col justify-center ">
-            {" "}
-            <SliderImg
-              images={[
-                "https://scontent.fmex31-1.fna.fbcdn.net/v/t39.30808-6/439262923_935588625022605_1063857788820502697_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=EamC3PyX-NYQ7kNvgFhFz5w&_nc_ht=scontent.fmex31-1.fna&oh=00_AfDKlS7JpNlifQXYhAJ4JqCI8fNStzZrAuaxGPqyfQhQVw&oe=663DC8EF",
-                "https://scontent.fmex27-1.fna.fbcdn.net/v/t39.30808-6/432127497_919729356608532_5452819635856117104_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ubAeiJN2tR4Q7kNvgGqerli&_nc_ht=scontent.fmex27-1.fna&oh=00_AfDETGgi43RAEuo-Hb_40bKvOxzBqwLyfEGPJRYuriKnGQ&oe=663DDF89",
-                "https://scontent.fmex36-1.fna.fbcdn.net/v/t39.30808-6/434127611_919728853275249_3793479495879320223_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Sn8ww2sITQsQ7kNvgH6gcdg&_nc_ht=scontent.fmex36-1.fna&oh=00_AfD6bVo5K7KPMppAxH7dzBMvCwal0gc3Sr0J58iF3Rl7tQ&oe=663DDBA7",
-              ]}
+          <div className="hidden sm:block w-full">
+            <img
+              className="w-full h-full"
+              src="../../../src/assets/img/cbtAlumnos(1).png"
+              alt=""
             />
           </div>
+        </div>
+      </header>
+
+      <main className="mt-2 sm:mt-0">
+        <section className="grid grid-cols-1 md:grid-cols-2">
+          <div className="flex flex-col justify-center">
+            <h3 className="mx-6 md:mx-20 text-4xl font-extrabold text-gray-900 dark:text-dark md:text-6xl lg:text-6xl">
+              Eventos recientes
+            </h3>
+          </div>
+          <div className="flex flex-col">
+            <div className="md:hidden">
+              {/* Este div solo se mostrará en dispositivos móviles */}
+              <SliderImg
+                images={[
+                  "https://image.api.playstation.com/vulcan/ap/rnd/202311/2812/ae84720b553c4ce943e9c342621b60f198beda0dbf533e21.jpg",
+                  "https://image.api.playstation.com/vulcan/ap/rnd/202311/2812/ae84720b553c4ce943e9c342621b60f198beda0dbf533e21.jpg",
+                  "https://cdn.mos.cms.futurecdn.net/BeyhFdCM2ugLQjX8vX7fuQ-1200-80.jpg",
+                  "https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/08/cyberpunk-2077.jpg"
+                ]}
+              />
+            </div>
+            <div className="hidden md:flex md:flex-col md:justify-center md:items-center items-center justify-center w-full h-full ">
+              {/* Este div solo se mostrará en dispositivos de escritorio */}
+              <SliderImg images={["https://image.api.playstation.com/vulcan/ap/rnd/202311/2812/ae84720b553c4ce943e9c342621b60f198beda0dbf533e21.jpg",
+                "https://image.api.playstation.com/vulcan/ap/rnd/202311/2812/ae84720b553c4ce943e9c342621b60f198beda0dbf533e21.jpg",
+                "https://cdn.mos.cms.futurecdn.net/BeyhFdCM2ugLQjX8vX7fuQ-1200-80.jpg",
+                "https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/08/cyberpunk-2077.jpg"
+                
+              ]} />
+            </div>
+          </div>
         </section>
-        <Carreras />
-        <section className="dark:bg-white">
-          <div className="grid grid-cols-2 place-items-center">
-            <div className="w-96 h-96 flex justify-center items-center">
+        <section>
+          <Carreras />
+        </section>
+
+        <section className="">
+          <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-10">
+            <div className="w-full h-64 md:w-96 md:h-96 flex justify-center items-center">
               <div className="w-full h-full bg-[url('../../assets/img/36años.png')] dark:bg-[url('src/assets/img/36años.png')] bg-no-repeat bg-center bg-cover"></div>
             </div>
 
-            <div className="justify-items-center items-center mt-24 py-16">
-              <p class="mt-0 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-2xl md:mt-0 lg:text-4xl dark:text-dark ">
-                36 años de historia crecimiento constante son nuestro motor para
-                seguir trabajndo con ímpetud, con esmero, con dedicacion y total
-                compromiso para entregar a la sociedad a los mejores
+            <div className="flex justify-center items-center p-4">
+              <p className="text-justify mx-5 text-xl md:text-2xl lg:text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-dark">
+                36 años de historia y crecimiento constante son nuestro motor
+                para seguir trabajando con ímpetu, con esmero, con dedicación y
+                total compromiso para entregar a la sociedad a los mejores
                 profesionales técnicos del Estado de México.
               </p>
             </div>

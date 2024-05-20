@@ -31,6 +31,23 @@ export const fetchData = async () => {
     }
 };
 
+export const fetchEventos = async () => {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/api/eventos/');
+        console.log(response);
+        if (!response.ok) {
+            const errorInfo = `Status code: ${response.status}`;
+            console.log(errorInfo);
+            throw new Error(errorInfo);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+        throw error; 
+    }
+};
+
 
 const API_URL = 'http://127.0.0.1:8000/api/login/'; 
 
