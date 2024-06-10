@@ -1,6 +1,15 @@
+var mode = "production";
+var server = "";
+if (mode==="debug"){
+    server = 'http://127.0.0.1:8000';
+}
+else{
+    server = "https://backenddjango-production.up.railway.app";
+}
+
 export const sendData = async (formData) => {
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/profesores/', {
+        const response = await fetch(server+'/api/profesores/', {
             method: 'POST',
             body: formData
         });
@@ -15,7 +24,7 @@ export const sendData = async (formData) => {
 
 export const fetchData = async () => {
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/profesores/');
+        const response = await fetch(server+'/api/profesores/');
         console.log(response);
 
         if (!response.ok) {
@@ -33,7 +42,7 @@ export const fetchData = async () => {
 
 export const fetchEventos = async () => {
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/eventos/');
+        const response = await fetch(server+'/api/eventos/');
         console.log(response);
         if (!response.ok) {
             const errorInfo = `Status code: ${response.status}`;
@@ -50,7 +59,7 @@ export const fetchEventos = async () => {
 
 export const fetchEmpresa = async () => {
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/microEmpresas/');
+        const response = await fetch(server+'/api/microEmpresas/');
         console.log(response);
         if (!response.ok) {
             const errorInfo = `Status code: ${response.status}`;
@@ -66,7 +75,7 @@ export const fetchEmpresa = async () => {
 };
 
 
-const API_URL = 'http://127.0.0.1:8000/api/login/'; 
+const API_URL = server+'/api/login/'; 
 
 
 
