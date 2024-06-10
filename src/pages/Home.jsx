@@ -29,7 +29,7 @@ function Home() {
           <div className="hidden sm:block w-full">
             <img
               className="w-full h-full"
-              src="../../assets/img/cbtAlumnos(1).png"
+              src="https://drive.google.com/file/d/1G8SQJ00qaGYwDGSPebYqCcbs0Iy1FlYy/view?usp=drive_link"
               alt=""
             />
           </div>
