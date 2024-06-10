@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-
+import { NavLink } from "react-router-dom";
 const navigation = {
   company: [
     { name: "About", href: "#" },
@@ -43,17 +43,17 @@ const navigation = {
     {
       name: "Twitter",
       href: "#",
-      icon: (props) => ([]),
+      icon: (props) => [],
     },
     {
       name: "GitHub",
       href: "#",
-      icon: (props) => ([]),
+      icon: (props) => [],
     },
     {
       name: "Dribbble",
       href: "#",
-      icon: (props) => ([]),
+      icon: (props) => [],
     },
   ],
 };
@@ -75,6 +75,7 @@ function Footer() {
             <p className="text-base text-gray-500">
               Formando estudiantes para ser el futuro de Mexico.
             </p>
+            <NavLink to={"/admin"}>admin</NavLink>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
                 <a
@@ -91,7 +92,8 @@ function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-200 pt-8">
           <p className="text-base text-gray-400 xl:text-center">
-            &copy; 2020 CBT2 ING JUAN CELADA SALMÓN, LERMA, Inc. All rights reserved.
+            &copy; 2020 CBT2 ING JUAN CELADA SALMÓN, LERMA, Inc. All rights
+            reserved.
           </p>
         </div>
       </div>
