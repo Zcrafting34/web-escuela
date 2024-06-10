@@ -73,7 +73,7 @@ function Home() {
         <section className="">
           <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-10">
             <div className="w-full h-64 md:w-96 md:h-96 flex justify-center items-center">
-              <div className="w-full h-full bg-[url('../../assets/img/36años.png')] dark:bg-[url('src/assets/img/36años.png')] bg-no-repeat bg-center bg-cover"></div>
+              <div className="w-full h-full bg-[url('https://imgur.com/6BrvbXJ')] bg-no-repeat bg-center bg-cover"></div>
             </div>
 
             <div className="flex justify-center items-center p-4">
