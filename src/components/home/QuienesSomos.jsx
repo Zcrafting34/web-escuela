@@ -24,8 +24,8 @@ function QuienesSomos() {
           <SliderImg
             images={[
               "https://scontent.fmex10-5.fna.fbcdn.net/v/t1.6435-9/130766826_3666290833434872_2063399993878866751_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=gYP504O67OwQ7kNvgGPM2nY&_nc_ht=scontent.fmex10-5.fna&oh=00_AYAmCF5oCLO3d3sT2hJWrznA9kaYKmxJnlONKYmAKUeNag&oe=668EDEE6",
-              "https://scontent.fmex27-1.fna.fbcdn.net/v/t1.6435-9/130766826_3666290833434872_2063399993878866751_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=CSxHgTtbYTUQ7kNvgE0BKfW&_nc_ht=scontent.fmex27-1.fna&oh=00_AfA3QU6PPgANzcJ_dbnRTihVnUVgWeVPxDa_y_E2TA7vEg&oe=665F30A6",
-              "https://scontent.fmex36-1.fna.fbcdn.net/v/t1.6435-9/45093863_2055184054545566_7866681091698982912_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=PXlGie2DoPQQ7kNvgHX7f2O&_nc_ht=scontent.fmex36-1.fna&oh=00_AfDsufvGa2HigAPFTahrhrBMnUXrNTPdJONQAVApLQZNeg&oe=665F4518",
+              "https://scontent.fmex10-4.fna.fbcdn.net/v/t1.6435-9/45101460_2050428605021111_9130608006050873344_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=GWMRZpPhK6sQ7kNvgH-cABj&_nc_ht=scontent.fmex10-4.fna&oh=00_AYCnh7SmFUJQwC_MrCgj6uH_cyQr3OvZXh6wDSWiwRAtQw&oe=668ED5DF",
+              "https://scontent.fmex10-3.fna.fbcdn.net/v/t1.6435-9/35188982_1850985894965384_5535354087308001280_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=gj2sqDd5oW0Q7kNvgEr7dBz&_nc_ht=scontent.fmex10-3.fna&oh=00_AYA-2xpyZd2NQyfxcCEYlV9VidJTuGhbjg0yINwWt4amhQ&oe=668EE06D",
             ]}
           />
         </div>
