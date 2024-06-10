@@ -23,7 +23,7 @@ function QuienesSomos() {
         <div className="m-6 ">
           <SliderImg
             images={[
-              "https://scontent.fmex31-1.fna.fbcdn.net/v/t39.30808-6/308075992_583034283611376_5977740656521040246_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=YwBx6_JQ018Q7kNvgFAbiJX&_nc_ht=scontent.fmex31-1.fna&oh=00_AfCadSxnWdw55uk6rRd56h28bdR5rl4xCAECUL2R9pw7JA&oe=6634A69F",
+              "https://scontent.fmex10-5.fna.fbcdn.net/v/t1.6435-9/130766826_3666290833434872_2063399993878866751_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=gYP504O67OwQ7kNvgGPM2nY&_nc_ht=scontent.fmex10-5.fna&oh=00_AYAmCF5oCLO3d3sT2hJWrznA9kaYKmxJnlONKYmAKUeNag&oe=668EDEE6",
               "https://scontent.fmex27-1.fna.fbcdn.net/v/t1.6435-9/130766826_3666290833434872_2063399993878866751_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=CSxHgTtbYTUQ7kNvgE0BKfW&_nc_ht=scontent.fmex27-1.fna&oh=00_AfA3QU6PPgANzcJ_dbnRTihVnUVgWeVPxDa_y_E2TA7vEg&oe=665F30A6",
               "https://scontent.fmex36-1.fna.fbcdn.net/v/t1.6435-9/45093863_2055184054545566_7866681091698982912_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=PXlGie2DoPQQ7kNvgHX7f2O&_nc_ht=scontent.fmex36-1.fna&oh=00_AfDsufvGa2HigAPFTahrhrBMnUXrNTPdJONQAVApLQZNeg&oe=665F4518",
             ]}
