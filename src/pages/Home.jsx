@@ -29,7 +29,7 @@ function Home() {
           <div className="hidden sm:block w-full">
             <img
               className="w-full h-full"
-              src="../../../src/assets/img/cbtAlumnos(1).png"
+              src="../../assets/img/cbtAlumnos(1).png"
               alt=""
             />
           </div>
