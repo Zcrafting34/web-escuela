@@ -7,6 +7,7 @@ import Carreras from './pages/Carreras/Carreras';
 import FormProfes from './pages/FormProfes';
 import Admin from './pages/admin/Admin'
 import Eventos from './pages/Eventos/Eventos';
+import MicroEmpresas from './pages/MicroEmpresas/MicroEmpresas'
 import Error404 from './pages/Error404';
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/formProfes' element={<FormProfes />}/>
           <Route path='/admin' element={<Admin />} />
           <Route path='/eventos' element={<Eventos />}/>
+          <Route path='/micro_empresas' element={<MicroEmpresas />} />
         </Routes>
       </Router>
     </Provider>

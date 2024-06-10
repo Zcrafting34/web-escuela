@@ -48,8 +48,27 @@ export const fetchEventos = async () => {
     }
 };
 
+export const fetchEmpresa = async () => {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/api/microEmpresas/');
+        console.log(response);
+        if (!response.ok) {
+            const errorInfo = `Status code: ${response.status}`;
+            console.log(errorInfo);
+            throw new Error(errorInfo);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+        throw error; 
+    }
+};
+
 
 const API_URL = 'http://127.0.0.1:8000/api/login/'; 
+
+
 
 export const authenticateUser = async (username, password) => {
     try {
@@ -67,6 +86,7 @@ export const authenticateUser = async (username, password) => {
             username,
             password
         }))
+        
         const data = await response.json();
         if (response.ok) {
             return data;
@@ -74,6 +94,8 @@ export const authenticateUser = async (username, password) => {
             throw new Error(data.error || 'Error desconocido al autenticar');
         }
     } catch (error) {
-        throw new Error('Error en la red o en la configuración de la solicitud: ' + error.message);
+        throw new Error('Error en la red o en la configuración de la solicitud: ');
     }
 };
+
+

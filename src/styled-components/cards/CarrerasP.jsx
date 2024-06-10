@@ -15,6 +15,7 @@ function CarrerasP({encabezado, tc1,desc1, tc2, desc2, desc3, tc3, gradient}) {
         <Card title={tc3} description={desc3} imagen={null}/>
       </div>
     </section>
+    
   );
 }
 

@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
-
+import Layout from '../../hooks/Layouts/Layout'
 import NavBar from "../../components/navigation/NavBar";
-import Card from './../../styled-components/cards/Card';
 import CardSlider from '../../styled-components/containers/CardSlider';
 import {fetchEventos} from '../../services/ApiService'
 function Eventos() {
@@ -19,7 +18,7 @@ function Eventos() {
     loadData();
   }, []);
   return (
-    <body>
+    <Layout>
       <NavBar />
       <main className="m-6 mt-20">
         <div className="">
@@ -32,7 +31,7 @@ function Eventos() {
           {data ? <CardSlider cards={data}/> : <h2>Cargando Eventos</h2>}
         </section>
       </main>
-    </body>
+    </Layout>
   );
 }
 

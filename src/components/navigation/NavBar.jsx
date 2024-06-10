@@ -15,7 +15,7 @@ const Navbar = () => {
       setVisible(visible);
       setPrevScrollPos(currentScrollPos);
     };
-
+    
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -81,16 +81,6 @@ const Navbar = () => {
               >
                 MicroEmpresas
               </NavLink>
-              <NavLink
-                to="/alumnos"
-                className={
-                  visible
-                    ? "text-white inline-flex text-lg font-medium leading-6 mx-8 hover:underline hover:underline-offset-2"
-                    : "text-black inline-flex text-lg font-medium leading-6 mx-8 hover:underline hover:underline-offset-2"
-                }
-              >
-                Alumnos
-              </NavLink>
             </div>
             <div className="sm:hidden">
               <button
@@ -100,7 +90,7 @@ const Navbar = () => {
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
-                <span className="sr-only">Open main menu</span>
+                <span className="sr-only">Menu</span>
                 {"|||"}
               </button>
             </div>
