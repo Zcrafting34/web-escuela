@@ -4,8 +4,30 @@ import Carreras from "../components/home/Carreras";
 import Docentes from "../components/home/Docentes";
 import QuienesSomos from "../components/home/QuienesSomos";
 import SliderImg from "../styled-components/containers/SliderImg";
+import {fetchEventos} from '../services/ApiService'
+import { useState, useEffect} from "react";
 
 function Home() {
+
+  const [dato, setDato] = useState(null);
+  const [imagenesEventos, setImagenesEventos] = useState()
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await fetchEventos();
+        setDato(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    loadData();
+
+  }, []);
+  
+ 
+  
+
   return (
     <Layout>
       <header className="pt-0">
@@ -57,12 +79,7 @@ function Home() {
             </div>
             <div className="hidden md:flex md:flex-col md:justify-center md:items-center items-center justify-center w-full h-full ">
               {/* Este div solo se mostrará en dispositivos de escritorio */}
-              <SliderImg images={["https://image.api.playstation.com/vulcan/ap/rnd/202311/2812/ae84720b553c4ce943e9c342621b60f198beda0dbf533e21.jpg",
-                "https://image.api.playstation.com/vulcan/ap/rnd/202311/2812/ae84720b553c4ce943e9c342621b60f198beda0dbf533e21.jpg",
-                "https://cdn.mos.cms.futurecdn.net/BeyhFdCM2ugLQjX8vX7fuQ-1200-80.jpg",
-                "https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/08/cyberpunk-2077.jpg"
-                
-              ]} />
+              <SliderImg images={dato ? dato.map(item => item.imagen): ["a", "a"]} />
             </div>
           </div>
         </section>
@@ -71,6 +88,7 @@ function Home() {
         </section>
 
         <section className="">
+
           <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-10">
             <div className="w-full h-64 md:w-96 md:h-96 flex justify-center items-center">
               <img src="https://i.imgur.com/fGs8Ufv.png" className="w-full h-full center cover" />
