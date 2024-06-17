@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { sendData } from "../services/ApiService";
 import TeacherCard from "../components/home/TeacherCard";
 import { Textarea } from "flowbite-react";
@@ -11,12 +11,12 @@ function UploadForm() {
     facebook: "",
     twiter: "",
     linkedin: "",
+  });
+
+  const [file, setFile] = useState({
     fotoProfesor: null,
     fotoClase: null,
   });
-
-  const [imagePreview, setImagePreview] = useState(null);
-  const [teacherImagePreview, setTeacherImagePreview] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,19 +32,10 @@ function UploadForm() {
 
     if (files && files.length > 0) {
       const file = files[0];
-      if (name === "fotoClase") {
-        setFormData((prevState) => ({
-          ...prevState,
-          fotoClase: file,
-        }));
-        setImagePreview(URL.createObjectURL(file));
-      } else if (name === "fotoProfesor") {
-        setFormData((prevState) => ({
-          ...prevState,
-          fotoProfesor: file,
-        }));
-        setTeacherImagePreview(URL.createObjectURL(file));
-      }
+      setFile((prevState) => ({
+        ...prevState,
+        [name]: file,
+      }));
     }
   };
 
@@ -54,24 +45,35 @@ function UploadForm() {
     data.append("nombre", formData.nombre);
     data.append("areas", formData.areas);
     data.append("descripcionPerfil", formData.descripcionPerfil);
-    data.append("fotoProfesor", formData.fotoProfesor);
-    data.append("fotoClase", formData.fotoClase);
+    data.append("fotoProfesor", file.fotoProfesor);
+    data.append("fotoClase", file.fotoClase);
     data.append("facebook", formData.facebook);
     data.append("twiter", formData.twiter);
     data.append("linkedin", formData.linkedin);
-    await sendData(data);
-    setFormData({
-      nombre: "",
-      areas: "",
-      descripcionPerfil: "",
-      facebook: "",
-      twiter: "",
-      linkedin: "",
-      fotoProfesor: null,
-      fotoClase: null,
-    });
-    setImagePreview(null);
-    setTeacherImagePreview(null);
+
+    try {
+      const response = await sendData(data);
+      if (response.status === 200) {
+        alert("Formulario enviado exitosamente");
+        setFormData({
+          nombre: "",
+          areas: "",
+          descripcionPerfil: "",
+          facebook: "",
+          twiter: "",
+          linkedin: "",
+        });
+        setFile({
+          fotoProfesor: null,
+          fotoClase: null,
+        });
+      } else {
+        alert("Hubo un error al enviar el formulario");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Hubo un error al enviar el formulario");
+    }
   };
 
   return (
@@ -135,8 +137,8 @@ function UploadForm() {
           <input
             className="m-2 rounded-md p-1"
             type="text"
-            placeholder="Twitter"
-            name="twitter"
+            placeholder="Twiter"
+            name="twiter"
             value={formData.twiter}
             onChange={handleChange}
           />
@@ -150,7 +152,7 @@ function UploadForm() {
           />
 
           <button
-            className="bg-blue-900 rounded-lg w-24 text-white hover:scale-110"
+            className="bg-blue-900 rounded-lg w-24 text-white hover:scale-110 "
             type="submit"
           >
             Enviar
@@ -158,11 +160,7 @@ function UploadForm() {
         </form>
       </div>
       <div>
-      {<TeacherCard
-          teacher={formData}
-          imagePreview={imagePreview}
-          teacherImagePreview={teacherImagePreview}
-        />}
+        <TeacherCard teacher={formData} />
       </div>
     </div>
   );
