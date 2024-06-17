@@ -72,7 +72,7 @@ function Home() {
           <div className="flex flex-col items-center">
             <div className="md:hidden w-3/4">
               {/* Este div solo se mostrará en dispositivos móviles */}
-              <SliderImg images={images} />
+              <SliderImg images={eventoImages} />
             </div>
             <div className="hidden md:flex md:w-3/4 md:justify-center md:items-center">
               {/* Este div solo se mostrará en dispositivos de escritorio */}
