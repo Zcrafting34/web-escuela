@@ -9,7 +9,7 @@ export function ItemGalery({ img, texto }) {
         className="w-full h-48 object-cover"
       />
       <div className="px-4 py-2">
-        <h3 className="text-lg font-extrabold text-white">{texto}</h3>
+        <h3 className="text-lg font-extrabold text-dark">{texto}</h3>
       </div>
     </div>
   );
