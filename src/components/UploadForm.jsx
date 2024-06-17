@@ -11,6 +11,8 @@ function UploadForm() {
     facebook: "",
     twitter: "",
     linkedin: "",
+    fotoProfesor: null,
+    fotoClase: null,
   });
 
   const [imagePreview, setImagePreview] = useState(null);
@@ -30,15 +32,19 @@ function UploadForm() {
 
     if (files && files.length > 0) {
       const file = files[0];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (name === "fotoClase") {
-          setImagePreview(reader.result);
-        } else if (name === "fotoProfesor") {
-          setTeacherImagePreview(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
+      if (name === "fotoClase") {
+        setFormData((prevState) => ({
+          ...prevState,
+          fotoClase: file,
+        }));
+        setImagePreview(URL.createObjectURL(file));
+      } else if (name === "fotoProfesor") {
+        setFormData((prevState) => ({
+          ...prevState,
+          fotoProfesor: file,
+        }));
+        setTeacherImagePreview(URL.createObjectURL(file));
+      }
     }
   };
 
@@ -61,6 +67,8 @@ function UploadForm() {
       facebook: "",
       twitter: "",
       linkedin: "",
+      fotoProfesor: null,
+      fotoClase: null,
     });
     setImagePreview(null);
     setTeacherImagePreview(null);
