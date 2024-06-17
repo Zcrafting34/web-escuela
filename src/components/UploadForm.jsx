@@ -15,8 +15,8 @@ function UploadForm() {
     fotoClase: null,
   });
 
-  const [imagePreview, setImagePreview] = useState(null);
-  const [teacherImagePreview, setTeacherImagePreview] = useState(null);
+  //const [imagePreview, setImagePreview] = useState(null);
+  //const [teacherImagePreview, setTeacherImagePreview] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,13 +37,13 @@ function UploadForm() {
           ...prevState,
           fotoClase: file,
         }));
-        setImagePreview(URL.createObjectURL(file));
+        
       } else if (name === "fotoProfesor") {
         setFormData((prevState) => ({
           ...prevState,
           fotoProfesor: file,
         }));
-        setTeacherImagePreview(URL.createObjectURL(file));
+        
       }
     }
   };
@@ -158,11 +158,11 @@ function UploadForm() {
         </form>
       </div>
       <div>
-        <TeacherCard
+      {/*<TeacherCard
           teacher={formData}
           imagePreview={imagePreview}
           teacherImagePreview={teacherImagePreview}
-        />
+        />*/}
       </div>
     </div>
   );
