@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { sendData } from "../services/ApiService";
 import TeacherCard from "../components/home/TeacherCard";
 import { Textarea } from "flowbite-react";
@@ -11,11 +11,6 @@ function UploadForm() {
     facebook: "",
     twitter: "",
     linkedin: "",
-  });
-
-  const [file, setFile] = useState({
-    fotoProfesor: null,
-    fotoClase: null,
   });
 
   const [imagePreview, setImagePreview] = useState(null);
@@ -35,17 +30,15 @@ function UploadForm() {
 
     if (files && files.length > 0) {
       const file = files[0];
-      setFile((prevState) => ({
-        ...prevState,
-        [name]: file,
-      }));
-
-      // Crear la URL de la imagen para la previsualización
-      if (name === "fotoProfesor") {
-        setTeacherImagePreview(URL.createObjectURL(file));
-      } else if (name === "fotoClase") {
-        setImagePreview(URL.createObjectURL(file));
-      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (name === "fotoClase") {
+          setImagePreview(reader.result);
+        } else if (name === "fotoProfesor") {
+          setTeacherImagePreview(reader.result);
+        }
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -55,13 +48,12 @@ function UploadForm() {
     data.append("nombre", formData.nombre);
     data.append("areas", formData.areas);
     data.append("descripcionPerfil", formData.descripcionPerfil);
-    data.append("fotoProfesor", file.fotoProfesor);
-    data.append("fotoClase", file.fotoClase);
+    data.append("fotoProfesor", formData.fotoProfesor);
+    data.append("fotoClase", formData.fotoClase);
     data.append("facebook", formData.facebook);
     data.append("twitter", formData.twitter);
     data.append("linkedin", formData.linkedin);
     await sendData(data);
-    // Limpiar el formulario después del envío exitoso
     setFormData({
       nombre: "",
       areas: "",
@@ -69,10 +61,6 @@ function UploadForm() {
       facebook: "",
       twitter: "",
       linkedin: "",
-    });
-    setFile({
-      fotoProfesor: null,
-      fotoClase: null,
     });
     setImagePreview(null);
     setTeacherImagePreview(null);
@@ -83,7 +71,7 @@ function UploadForm() {
       <div>
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 bg-indigo-400 w-96 h-full m-8 p-6 rounded-xl"
+          className="grid grid-cols-1 bg-indigo-400  w-96 h-full m-8 p-6 rounded-xl"
         >
           <input
             className="m-2 rounded-md p-1"
@@ -147,7 +135,7 @@ function UploadForm() {
           <input
             className="m-2 rounded-md p-1"
             type="text"
-            placeholder="Linkedin"
+            placeholder="linkedin"
             name="linkedin"
             value={formData.linkedin}
             onChange={handleChange}
