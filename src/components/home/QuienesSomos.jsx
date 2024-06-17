@@ -9,15 +9,15 @@ function QuienesSomos() {
   const handleAbrirVentana = () => {
     setVentanaVisible(true);
   };
+
   const cerrarVentana = () => {
     setVentanaVisible(false);
   };
-  console.log(ventanaVisible);
 
   return (
-    <section className="pt-2 mb-10 h-5/6 grid grid-cols-2 bg-white">
-      <div className="my-32">
-        <h3 className='mx-6 pt-2 py-8 px-5 class=" text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl md:mt-0 lg:text-5xl'>
+    <section className="pt-2 mb-10 h-full grid grid-cols-1 md:grid-cols-2 bg-white">
+      <div className="md:my-32">
+        <h3 className='mx-6 pt-2 py-8 px-5 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl md:mt-0 lg:text-5xl'>
           Contamos con grandes instalaciones
         </h3>
         <div className="m-6 ">
@@ -32,16 +32,16 @@ function QuienesSomos() {
       </div>
 
       <div className="flex flex-col justify-center items-center">
-        <h3 className='pt-20 py-20 px-10 class=" mt-0 text-2xl font-extrabold leading-none tracking-tight text-white md:text-3xl md:mt-0 lg:text-5xl dark:text-dark'>
+        <h3 className='pt-10 md:pt-10 pb-10 px-10 text-2xl font-extrabold leading-none tracking-tight text-white md:text-3xl lg:text-5xl dark:text-dark'>
           ¿Quieres más detalles?
         </h3>
         <button
-        className="text-white font-extrabold text-3xl bg-sky-400 p-3 rounded-lg shadow-lg hover:shadow-xl hover:transition-transform hover:scale-105"
-        onClick={handleAbrirVentana}
+          className="text-white font-extrabold text-xl md:text-3xl bg-sky-400 p-3 rounded-lg shadow-lg hover:shadow-xl hover:transition-transform hover:scale-105"
+          onClick={handleAbrirVentana}
         >
           Agenda una cita
         </button>
-        <Email mostrar={ventanaVisible} cerrarVentana={cerrarVentana}/>
+        <Email mostrar={ventanaVisible} cerrarVentana={cerrarVentana} />
       </div>
     </section>
   );

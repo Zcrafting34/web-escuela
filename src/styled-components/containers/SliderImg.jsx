@@ -1,6 +1,6 @@
 import Slider from 'react-slick';
 
-const SliderImg = ({ images, h }) => {
+const SliderImg = ({ images, h = "h-96" }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -14,7 +14,7 @@ const SliderImg = ({ images, h }) => {
 
   return (
     <div className="w-full mx-auto">
-      <div className="w-full h-96 overflow-hidden rounded-xl">
+      <div className={`w-full ${h} overflow-hidden rounded-xl`}>
         <Slider {...settings}>
           {images.map((image, index) => (
             <div key={index}>
