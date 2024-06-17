@@ -53,7 +53,7 @@ function UploadForm() {
 
     try {
       const response = await sendData(data);
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === "ok") {
         alert("Formulario enviado exitosamente");
         setFormData({
           nombre: "",
