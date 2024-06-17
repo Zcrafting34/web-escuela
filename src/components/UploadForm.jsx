@@ -8,12 +8,18 @@ function UploadForm() {
     nombre: "",
     areas: "",
     descripcionPerfil: "",
-    fotoProfesor: null,
-    fotoClase: null,
     facebook: "",
-    twiter: "",
+    twitter: "",
     linkedin: "",
   });
+
+  const [file, setFile] = useState({
+    fotoProfesor: null,
+    fotoClase: null,
+  });
+
+  const [imagePreview, setImagePreview] = useState(null);
+  const [teacherImagePreview, setTeacherImagePreview] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,21 +35,24 @@ function UploadForm() {
 
     if (files && files.length > 0) {
       const file = files[0];
-      // Verificar si el archivo seleccionado es una imagen
-      if (file && file.type.startsWith("image/")) {
-        setFormData((prevState) => ({
-          ...prevState,
-          [name]: file,
-        }));
+      setFile((prevState) => ({
+        ...prevState,
+        [name]: file,
+      }));
 
-        // Mostrar la vista previa de la imagen
+      // Mostrar previsualización de la imagen
+      if (name === "fotoProfesor") {
         const reader = new FileReader();
-        reader.onload = (e) => {
-          setPreviewUrl(e.target.result);
+        reader.onloadend = () => {
+          setTeacherImagePreview(reader.result);
         };
         reader.readAsDataURL(file);
-      } else {
-        alert("Por favor, selecciona un archivo de imagen.");
+      } else if (name === "fotoClase") {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setImagePreview(reader.result);
+        };
+        reader.readAsDataURL(file);
       }
     }
   };
@@ -54,46 +63,35 @@ function UploadForm() {
     data.append("nombre", formData.nombre);
     data.append("areas", formData.areas);
     data.append("descripcionPerfil", formData.descripcionPerfil);
-    data.append("fotoProfesor", formData.fotoProfesor);
-    data.append("fotoClase", formData.fotoClase);
+    data.append("fotoProfesor", file.fotoProfesor);
+    data.append("fotoClase", file.fotoClase);
     data.append("facebook", formData.facebook);
-    data.append("twiter", formData.twiter);
+    data.append("twitter", formData.twitter);
     data.append("linkedin", formData.linkedin);
-
-    try {
-      const response = await sendData(data);
-      if (response.status === 200) {
-        alert("¡Datos enviados exitosamente!");
-        setFormData({
-          nombre: "",
-          areas: "",
-          descripcionPerfil: "",
-          fotoProfesor: null,
-          fotoClase: null,
-          facebook: "",
-          twiter: "",
-          linkedin: "",
-        });
-        setPreviewUrl(null); // Limpiar la vista previa
-      } else {
-        alert("Error al enviar los datos. Por favor, inténtalo de nuevo.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Error al enviar los datos. Por favor, inténtalo de nuevo.");
-    }
+    await sendData(data);
+    // Limpiar el formulario después del envío exitoso
+    setFormData({
+      nombre: "",
+      areas: "",
+      descripcionPerfil: "",
+      facebook: "",
+      twitter: "",
+      linkedin: "",
+    });
+    setFile({
+      fotoProfesor: null,
+      fotoClase: null,
+    });
+    setImagePreview(null);
+    setTeacherImagePreview(null);
   };
-
-  // Estado para almacenar la URL de la vista previa de la imagen
-  const [previewUrl, setPreviewUrl] = useState(null);
 
   return (
     <div className="grid grid-cols-2">
       <div>
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 bg-indigo-400  w-96 h-full m-8 p-6 rounded-xl"
-          enctype="multipart/form-data"
+          className="grid grid-cols-1 bg-indigo-400 w-96 h-full m-8 p-6 rounded-xl"
         >
           <input
             className="m-2 rounded-md p-1"
@@ -106,7 +104,7 @@ function UploadForm() {
           <input
             className="m-2 rounded-md p-1"
             type="text"
-            placeholder="Áreas"
+            placeholder="Areas"
             name="areas"
             value={formData.areas}
             onChange={handleChange}
@@ -114,7 +112,7 @@ function UploadForm() {
           <Textarea
             className="m-2 rounded-md p-1"
             type="text"
-            placeholder="Descripción del perfil"
+            placeholder="Descripcion del perfil"
             name="descripcionPerfil"
             value={formData.descripcionPerfil}
             onChange={handleChange}
@@ -150,8 +148,8 @@ function UploadForm() {
             className="m-2 rounded-md p-1"
             type="text"
             placeholder="Twitter"
-            name="twiter"
-            value={formData.twiter}
+            name="twitter"
+            value={formData.twitter}
             onChange={handleChange}
           />
           <input
@@ -172,7 +170,11 @@ function UploadForm() {
         </form>
       </div>
       <div>
-        <TeacherCard teacher={{ ...formData, previewUrl }} />
+        <TeacherCard
+          teacher={formData}
+          imagePreview={imagePreview}
+          teacherImagePreview={teacherImagePreview}
+        />
       </div>
     </div>
   );
