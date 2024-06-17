@@ -63,7 +63,7 @@ function Home() {
       </header>
 
       <main className="mt-0 sm:mt-0">
-        <section className="eventos md:grid md:grid-cols-2">
+        <section className="eventos md:grid md:grid-cols-2 my-10">
           <div className="flex flex-col justify-center">
             <h3 className="mx-6 md:mx-20 text-4xl font-extrabold text-gray-900 dark:text-dark md:text-6xl lg:text-6xl text-center md:text-left">
               Eventos recientes

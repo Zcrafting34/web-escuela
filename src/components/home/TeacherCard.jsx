@@ -1,16 +1,17 @@
 import React from "react";
 
-const TeacherCard = ({ teacher }) => {
+const TeacherCard = ({ teacher, imagePreview, teacherImagePreview }) => {
+  const areas = teacher.areas.split(",");
 
-    const areas = teacher.areas.split(",");
-  
   return (
     <div className="bg-white rounded-xl shadow-xl mx-6 my-4 w-80 h-auto">
       <div className="h-40 bg-gray-200 rounded-t-xl overflow-hidden">
         <img
           src={
-            teacher
-              ? teacher.fotoClase
+            imagePreview
+              ? imagePreview
+              : teacher.fotoClase
+              ? URL.createObjectURL(teacher.fotoClase) // Mostrar la previsualización de la foto de clase si está disponible
               : "https://img.freepik.com/vector-gratis/fondo-degradado-lineas-azules-dinamicas_23-2148995756.jpg"
           }
           alt=""
@@ -20,8 +21,10 @@ const TeacherCard = ({ teacher }) => {
       <div className="relative -mt-16 px-4 pb-4 flex flex-col items-center">
         <img
           src={
-            teacher
-              ? teacher.fotoProfesor
+            teacherImagePreview
+              ? teacherImagePreview
+              : teacher.fotoProfesor
+              ? URL.createObjectURL(teacher.fotoProfesor) // Mostrar la previsualización de la foto del profesor si está disponible
               : "https://static.vecteezy.com/system/resources/thumbnails/005/544/770/small/profile-icon-design-free-vector.jpg"
           }
           alt=""
@@ -59,14 +62,17 @@ const TeacherCard = ({ teacher }) => {
           ) : (
             <a></a>
           )}
-          {teacher ? <a href={teacher.twitter} className="mx-2">
-            <img
-              src="https://cdn.icon-icons.com/icons2/910/PNG/512/twitter-1_icon-icons.com_71061.png"
-              alt="Twitter"
-              className="w-6 h-6"
-            />
-          </a>: <a></a>}
-
+          {teacher ? (
+            <a href={teacher.twitter} className="mx-2">
+              <img
+                src="https://cdn.icon-icons.com/icons2/910/PNG/512/twitter-1_icon-icons.com_71061.png"
+                alt="Twitter"
+                className="w-6 h-6"
+              />
+            </a>
+          ) : (
+            <a></a>
+          )}
         </div>
       </div>
     </div>
@@ -74,3 +80,4 @@ const TeacherCard = ({ teacher }) => {
 };
 
 export default TeacherCard;
+

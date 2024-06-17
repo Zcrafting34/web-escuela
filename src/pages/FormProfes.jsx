@@ -4,7 +4,7 @@ import UploadFrom from '../components/UploadForm'
 function FormProfes() {
   return (
     <Layout>
-        <main className='pt-24'>
+        <main className=''>
             <UploadFrom/>
         </main>
     </Layout>

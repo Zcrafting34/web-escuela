@@ -1,10 +1,8 @@
-const Galery = ({datos}) => {
-
-
+const Galery = ({ datos }) => {
   return (
     <div className="container mx-auto">
       <h1 className="text-3xl font-bold my-8">Proyectos de los Estudiantes</h1>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {datos.map((dato, index) => (
           <div key={index} className="relative group">
             <img

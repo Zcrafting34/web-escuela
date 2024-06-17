@@ -53,8 +53,8 @@ function MicroEmpresas() {
   return (
     <Layout>
       <main className="pt-32">
-        <section className="grid grid-cols-2">
-          <div>
+        <section className="grid grid-cols-1 md:grid-cols-2">
+          <div className="md:order-2">
             <h2 className="mt-10 mx-10 text-4xl md:text-6xl font-extrabold leading-none tracking-tight text-gray-900 ">
               Micro Empresas
             </h2>
@@ -68,7 +68,7 @@ function MicroEmpresas() {
               voluptatum repudiandae assumenda. Deleniti, nesciunt dolores.
             </p>
           </div>
-          <div>
+          <div className="md:order-1">
             <SliderImg
               images={[
                 "https://scontent.fmex10-1.fna.fbcdn.net/v/t39.30808-6/432763830_919209873327147_1479269278591483108_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=g0iLZiHC04QQ7kNvgHk1xc9&_nc_ht=scontent.fmex10-1.fna&oh=00_AYDZaAwlaftfGk8TWCx56kVcIrQZ1ecxMkvrKw33vDWwmg&oe=666D0486",

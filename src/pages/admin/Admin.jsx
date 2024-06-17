@@ -2,6 +2,7 @@ import Layout from "../../hooks/Layouts/Layout";
 import Login from "../../styled-components/forms/Login";
 import { connect } from "react-redux";
 import FormProfes from '../FormProfes'
+import Dashboard from "./components/Dashboard";
 
 const Admin = ({ isLoggedIn }) => {
   return (
@@ -9,7 +10,7 @@ const Admin = ({ isLoggedIn }) => {
       <main className="pt-20">
         {isLoggedIn ? (
           <div>
-            <FormProfes />
+            <Dashboard />
           </div>
         ) : (
           <Login />
