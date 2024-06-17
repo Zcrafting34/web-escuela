@@ -40,12 +40,16 @@ function UploadForm() {
         [name]: file,
       }));
 
-      // Mostrar previsualización de la imagen
-      if (name === "fotoProfesor") {
-        setTeacherImagePreview(file);
-      } else if (name === "fotoClase") {
-        setImagePreview(file);
-      }
+      // Leer la imagen como base64 para la previsualización
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (name === "fotoProfesor") {
+          setTeacherImagePreview(reader.result);
+        } else if (name === "fotoClase") {
+          setImagePreview(reader.result);
+        }
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -164,12 +168,8 @@ function UploadForm() {
       <div>
         <TeacherCard
           teacher={formData}
-          imagePreview={imagePreview ? URL.createObjectURL(imagePreview) : null}
-          teacherImagePreview={
-            teacherImagePreview
-              ? URL.createObjectURL(teacherImagePreview)
-              : null
-          }
+          imagePreview={imagePreview}
+          teacherImagePreview={teacherImagePreview}
         />
       </div>
     </div>
