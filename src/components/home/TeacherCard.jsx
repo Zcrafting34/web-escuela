@@ -11,7 +11,7 @@ const TeacherCard = ({ teacher, imagePreview, teacherImagePreview }) => {
             imagePreview
               ? imagePreview
               : teacher.fotoClase
-              ? URL.createObjectURL(teacher.fotoClase) // Mostrar la previsualización de la foto de clase si está disponible
+              ? teacher.fotoClase // Mostrar la previsualización de la foto de clase si está disponible
               : "https://img.freepik.com/vector-gratis/fondo-degradado-lineas-azules-dinamicas_23-2148995756.jpg"
           }
           alt=""
@@ -24,7 +24,7 @@ const TeacherCard = ({ teacher, imagePreview, teacherImagePreview }) => {
             teacherImagePreview
               ? teacherImagePreview
               : teacher.fotoProfesor
-              ? URL.createObjectURL(teacher.fotoProfesor) // Mostrar la previsualización de la foto del profesor si está disponible
+              ? teacher.fotoProfesor // Mostrar la previsualización de la foto del profesor si está disponible
               : "https://static.vecteezy.com/system/resources/thumbnails/005/544/770/small/profile-icon-design-free-vector.jpg"
           }
           alt=""
