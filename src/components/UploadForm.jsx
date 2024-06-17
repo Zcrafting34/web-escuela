@@ -9,7 +9,7 @@ function UploadForm() {
     areas: "",
     descripcionPerfil: "",
     facebook: "",
-    twitter: "",
+    twiter: "",
     linkedin: "",
     fotoProfesor: null,
     fotoClase: null,
@@ -57,7 +57,7 @@ function UploadForm() {
     data.append("fotoProfesor", formData.fotoProfesor);
     data.append("fotoClase", formData.fotoClase);
     data.append("facebook", formData.facebook);
-    data.append("twitter", formData.twitter);
+    data.append("twiter", formData.twiter);
     data.append("linkedin", formData.linkedin);
     await sendData(data);
     setFormData({
@@ -65,7 +65,7 @@ function UploadForm() {
       areas: "",
       descripcionPerfil: "",
       facebook: "",
-      twitter: "",
+      twiter: "",
       linkedin: "",
       fotoProfesor: null,
       fotoClase: null,
@@ -137,7 +137,7 @@ function UploadForm() {
             type="text"
             placeholder="Twitter"
             name="twitter"
-            value={formData.twitter}
+            value={formData.twiter}
             onChange={handleChange}
           />
           <input
