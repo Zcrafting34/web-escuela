@@ -40,16 +40,12 @@ function UploadForm() {
         [name]: file,
       }));
 
-      // Leer la imagen como base64 para la previsualización
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (name === "fotoProfesor") {
-          setTeacherImagePreview(reader.result);
-        } else if (name === "fotoClase") {
-          setImagePreview(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
+      // Crear la URL de la imagen para la previsualización
+      if (name === "fotoProfesor") {
+        setTeacherImagePreview(URL.createObjectURL(file));
+      } else if (name === "fotoClase") {
+        setImagePreview(URL.createObjectURL(file));
+      }
     }
   };
 
