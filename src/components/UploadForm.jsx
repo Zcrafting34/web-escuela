@@ -137,7 +137,7 @@ function UploadForm() {
           <input
             className="m-2 rounded-md p-1"
             type="text"
-            placeholder="Twiter"
+            placeholder="Correo Institucional"
             name="twiter"
             value={formData.twiter}
             onChange={handleChange}

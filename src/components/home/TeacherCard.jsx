@@ -51,7 +51,7 @@ const TeacherCard = ({ teacher, imagePreview, teacherImagePreview }) => {
             : "Descripcion corta del perfil del docente"}
         </p>
         <div className="flex justify-center mt-4">
-          {teacher.facebook === "n"? (
+          {teacher.facebook =! "n"? (
             <a href={teacher.facebook} className="mx-2">
               <img
                 src="https://cdn.icon-icons.com/icons2/1/PNG/256/social_facebook_fb_35.png"
@@ -63,10 +63,10 @@ const TeacherCard = ({ teacher, imagePreview, teacherImagePreview }) => {
             <a></a>
           )}
 
-          {teacher.facebook === "n"? (
+          {teacher.twiter =! "n"? (
             <a href={teacher.twiter } className="mx-2">
               <img
-                src="https://cdn.icon-icons.com/icons2/910/PNG/512/twitter-1_icon-icons.com_71061.png"
+                src="https://cdn.icon-icons.com/icons2/614/PNG/512/mail-black-envelope-symbol_icon-icons.com_56519.png"
                 alt="Twitter"
                 className="w-6 h-6"
               />
@@ -75,7 +75,7 @@ const TeacherCard = ({ teacher, imagePreview, teacherImagePreview }) => {
             <a></a>
           )}
 
-          {teacher.facebook === "n"? (
+          {teacher.linkedin =! "n"? (
             <a href={teacher.linkedin}>
               <img
                 src="https://cdn.icon-icons.com/icons2/2428/PNG/512/linkedin_black_logo_icon_147114.png"
